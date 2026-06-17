@@ -24,14 +24,14 @@ function CountBox({ value, label, delay }: { value: number; label: string; delay
     <div className="flex flex-col items-center group" style={{ transitionDelay: delay }}>
       <div className="relative">
         {/* Glow ring */}
-        <div className="absolute inset-0 rounded-2xl bg-primary-400/20 blur-md scale-110 group-hover:bg-primary-400/40 transition-all duration-500" />
-        <div className="relative glass rounded-2xl w-20 h-20 md:w-28 md:h-28 flex items-center justify-center border border-white/20 hover:border-gold-400/50 transition-all duration-300 hover:-translate-y-1">
-          <span className="font-serif text-3xl md:text-5xl font-bold text-white tabular-nums group-hover:text-gold-300 transition-colors duration-300">
+        <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-primary-400/20 blur-sm sm:blur-md scale-110 group-hover:bg-primary-400/40 transition-all duration-500" />
+        <div className="relative glass rounded-xl sm:rounded-2xl w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 flex items-center justify-center border border-white/20 hover:border-gold-400/50 transition-all duration-300 hover:-translate-y-1">
+          <span className="font-serif text-2xl sm:text-3xl md:text-5xl font-bold text-white tabular-nums group-hover:text-gold-300 transition-colors duration-300">
             {String(value).padStart(2, '0')}
           </span>
         </div>
       </div>
-      <span className="font-sans text-xs uppercase tracking-widest text-primary-200 mt-3">{label}</span>
+      <span className="font-sans text-[10px] sm:text-xs uppercase tracking-widest text-primary-200 mt-2 sm:mt-3">{label}</span>
     </div>
   )
 }
@@ -66,13 +66,13 @@ export default function Countdown() {
         <p className="font-sans text-primary-200 text-sm mb-12">Sunday, 28 June 2026 — 10:00 AM IST</p>
 
         {!isOver ? (
-          <div className="flex items-start justify-center gap-3 md:gap-6">
+          <div className="flex items-start justify-center gap-1.5 sm:gap-3 md:gap-6">
             <CountBox value={timeLeft.days} label="Days" delay="0s" />
-            <div className="text-white/40 text-3xl md:text-4xl font-bold mt-6 md:mt-8 animate-pulse">:</div>
+            <div className="text-white/40 text-xl sm:text-3xl md:text-4xl font-bold mt-4 sm:mt-6 md:mt-8 animate-pulse">:</div>
             <CountBox value={timeLeft.hours} label="Hours" delay="0.1s" />
-            <div className="text-white/40 text-3xl md:text-4xl font-bold mt-6 md:mt-8 animate-pulse">:</div>
+            <div className="text-white/40 text-xl sm:text-3xl md:text-4xl font-bold mt-4 sm:mt-6 md:mt-8 animate-pulse">:</div>
             <CountBox value={timeLeft.minutes} label="Minutes" delay="0.2s" />
-            <div className="text-white/40 text-3xl md:text-4xl font-bold mt-6 md:mt-8 animate-pulse">:</div>
+            <div className="text-white/40 text-xl sm:text-3xl md:text-4xl font-bold mt-4 sm:mt-6 md:mt-8 animate-pulse">:</div>
             <CountBox value={timeLeft.seconds} label="Seconds" delay="0.3s" />
           </div>
         ) : (
