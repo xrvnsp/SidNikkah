@@ -35,11 +35,12 @@ const events = [
   },
   {
     time: '4:00 PM',
-    title: 'Thalikettu Ceremony',
-    subtitle: 'Sidhiq & Sheerin',
+    title: 'Thalikettu (Ladies Only)',
+    subtitle: 'Cherished Tradition',
     icon: '∞',
-    description: 'The beautiful Thalikettu ceremony — a cherished tradition symbolizing the eternal bond.',
+    description: 'A cherished and private traditional ceremony held exclusively for the ladies.',
     color: 'from-rose-500 to-primary-500',
+    isBold: true,
   },
   {
     time: '6:00 PM',
@@ -85,7 +86,7 @@ function TimelineItem({
             {event.title}
           </h3>
           <p className="font-sans text-primary-400 text-xs italic mb-2">{event.subtitle}</p>
-          <p className="font-sans text-primary-600 text-xs leading-relaxed">{event.description}</p>
+          <p className={`font-sans text-xs leading-relaxed ${event.isBold ? 'font-bold text-primary-900' : 'text-primary-600'}`}>{event.description}</p>
         </div>
       </div>
 
@@ -110,7 +111,7 @@ function TimelineItem({
         </span>
         <h3 className="font-serif text-base font-bold text-primary-800">{event.title}</h3>
         <p className="font-sans text-primary-400 text-xs italic mb-1">{event.subtitle}</p>
-        <p className="font-sans text-primary-600 text-xs leading-relaxed">{event.description}</p>
+        <p className={`font-sans text-xs leading-relaxed ${event.isBold ? 'font-bold text-primary-900' : 'text-primary-600'}`}>{event.description}</p>
       </div>
 
       {/* Desktop empty side */}
