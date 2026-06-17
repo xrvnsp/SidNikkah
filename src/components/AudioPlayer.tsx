@@ -7,11 +7,11 @@ export default function AudioPlayer() {
 
   useEffect(() => {
     // Create audio element using the public folder reference
-    const audio = new Audio('/bg-loop.mpeg')
+    const audio = new Audio('/bg-loop.mp3')
     audio.loop = true
     audioRef.current = audio
 
-    // Attempt autoplay on first user interaction (click, scroll, touch)
+    // Attempt autoplay on first user interaction (click, touch)
     const handleFirstInteraction = () => {
       if (audioRef.current && !hasInteracted) {
         audioRef.current.play()
@@ -28,12 +28,10 @@ export default function AudioPlayer() {
 
     const cleanupListeners = () => {
       window.removeEventListener('click', handleFirstInteraction)
-      window.removeEventListener('scroll', handleFirstInteraction)
       window.removeEventListener('touchstart', handleFirstInteraction)
     }
 
     window.addEventListener('click', handleFirstInteraction)
-    window.addEventListener('scroll', handleFirstInteraction)
     window.addEventListener('touchstart', handleFirstInteraction)
 
     return () => {
